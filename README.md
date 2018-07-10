@@ -10,7 +10,7 @@ Perfect for that spare RaspberryPi, NGINX reverse proxy servers and more. Keep y
 
 ---
 
-## Useage
+## Usage
 
 Edit UpdateAll.sh or UpdateSingle.sh and fill in the required info:
 
@@ -110,6 +110,9 @@ Packaged by Homebrew
 
 Give it another whirl 👌
 
+
+### Updating Multiple Zones?
+Clone the repo a few more times for each domain. Each Zone will require it's own API details, best to keep it separate and make life easier.
 
 ---
 

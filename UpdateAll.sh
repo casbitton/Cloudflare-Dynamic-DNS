@@ -28,7 +28,7 @@ record_exists=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$zone
 
 if [ -z "$record_exists" ]
 then
-    echo "[$(date)] - No Entrys for Zone: $zone_name"
+    echo "[$(date)] - No Entry's for Zone: $zone_name"
     exit
 fi
 
