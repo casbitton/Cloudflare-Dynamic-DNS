@@ -25,20 +25,9 @@ Nice work, Let's do it 👍
 
 ---
 
-## Update All Domains ⚡
+## Update a Single Domain 🌮
 
-~~~
-./UpdateAll.sh
-
-[Tuesday 10 July  21:44:47 ACST 2018] - Checking domain.com
-[Tuesday 10 July  21:44:50 ACST 2018] - No Update Required: domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:51 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:53 ACST 2018] - No Update Required: www.domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:53 ACST 2018] - All Done!
-~~~
-
-
-## Update Single Domain 🌮
+With your `zone_name` defined as domain.com, Update the IP for taco.domain.com to the current external IP address.
 
 ~~~
 
@@ -65,6 +54,20 @@ Review the output 🐄
 
 [Tuesday 10 July  21:37:23 ACST 2018] - Checking taco.domain.com
 [Tuesday 10 July  21:37:25 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
+~~~
+
+## Update All Domains ⚡
+
+Perhaps you have a dozen sub domains, Update All is for you! All records attached to the zone will be updated.
+
+~~~
+./UpdateAll.sh
+
+[Tuesday 10 July  21:44:47 ACST 2018] - Checking domain.com
+[Tuesday 10 July  21:44:50 ACST 2018] - No Update Required: domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:51 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:53 ACST 2018] - No Update Required: www.domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:53 ACST 2018] - All Done!
 ~~~
 
 
