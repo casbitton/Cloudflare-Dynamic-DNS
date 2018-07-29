@@ -11,6 +11,18 @@ echo "[$(date)] - Record Name Missing, e.g: Update.sh taco ; This will update ta
       exit
 fi
 
+# CloudFlare Account
+auth_email="EMAILADDRESS"
+auth_key="AUTHKEY"
+zone_name="DOMAINNAME.COM"
+
+# Quick check to ensure you have updated the config above.
+if [ $auth_key = "AUTHKEY" ] 
+then
+    echo "[$(date)] - Oops! Please fill in the CloudFlare Account Details"
+    exit
+fi
+
 # Get IP Address
 # If Amazon ever retire this service checkout https://ipinfo.io/ip or https://icanhazip.com
 ip=$(curl -s https://checkip.amazonaws.com)
@@ -20,11 +32,6 @@ then
     echo "[$(date)] - Oops! We can't find an external IP address"
     exit
 fi
-
-# CloudFlare Account
-auth_email="EMAIL ADDRESS"
-auth_key="AUTHKEY"
-zone_name="DOMAINNAME.COM"
 
 # Match the Name to our Zone
 record_name="$name.$zone_name"

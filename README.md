@@ -1,10 +1,10 @@
-# Cloudflare-Dynamic-DNS
+# Cloudflare Dynamic DNS
 
-Dynamic IP? No Problem!
+Dynamic IP? No Problem! *Keep your Domains in check!*
 
-Quickly update a single or All DNS records in a flash using the Cloudflare v4 API.
+Quickly update DNS records for one or many domains names to the current external public IP address.
 
-Perfect for that spare RaspberryPi, NGINX reverse proxy servers and more. Keep your Domains in check.
+Perfect for any HomeLab, SelfHosted web server, RaspberryPi, NGINX reverse proxy servers and whatever else you want to host.
 
 ### *Backup your Cloudflare DNS configuration before blindly using these tools!*
 
@@ -12,12 +12,21 @@ Perfect for that spare RaspberryPi, NGINX reverse proxy servers and more. Keep y
 
 ## Usage
 
-Edit UpdateAll.sh or UpdateSingle.sh and fill in the required info:
+Edit `UpdateAll.sh` or `UpdateSingle.sh` and fill in the required info:
 
 ~~~
 # CloudFlare Account Details
-auth_email="EMAIL ADDRESS"
+auth_email="EMAILADDRESS"
 auth_key="AUTHKEY"
+~~~
+
+`UpdateAll.sh` - Multiple domains can be bulk updated, define them here.
+~~~
+zone_names=("DOMAINNAME.COM" "DOMAINNAME2.COM" "DOMAINNAME3.COM")
+~~~
+
+`UpdateSingle.sh` - A single domain you want to manage.
+~~~
 zone_name="DOMAINNAME.COM"
 ~~~
 
@@ -25,7 +34,29 @@ Nice work, Let's do it 👍
 
 ---
 
-## Update a Single Domain 🌮
+## Update All Domains ⚡
+
+Perhaps you have a dozen SelfHosted domains and sub domains, Update All is for you! All records attached to the domain will be updated to the current external IP address. It couldn't be easier!
+
+~~~
+./UpdateAll.sh
+
+[Tuesday 10 July  21:44:47 ACST 2018] - Checking domain.com
+[Tuesday 10 July  21:44:50 ACST 2018] - No Update Required: domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:51 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:53 ACST 2018] - No Update Required: www.domain.com is 1.1.1.1
+[Tuesday 10 July  21:44:54 ACST 2018] - Checking domain2.com
+[Tuesday 10 July  21:44:55 ACST 2018] - No Update Required: domain2.com is 1.1.1.1
+[Tuesday 10 July  21:44:56 ACST 2018] - No Update Required: hotdog.domain2.com is 1.1.1.1
+[Tuesday 10 July  21:44:56 ACST 2018] - No Update Required: www.domain2.com is 1.1.1.1
+[Tuesday 10 July  21:44:57 ACST 2018] - All Done!
+~~~
+
+## Party! 🎉🎈🕺🧙‍
+
+---
+
+## Update a Single Subdomain 🌮
 
 With your `zone_name` defined as domain.com, Update the IP for taco.domain.com to the current external IP address.
 
@@ -56,27 +87,11 @@ Review the output 🐄
 [Tuesday 10 July  21:37:25 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
 ~~~
 
-## Update All Domains ⚡
-
-Perhaps you have a dozen sub domains, Update All is for you! All records attached to the zone will be updated.
-
-~~~
-./UpdateAll.sh
-
-[Tuesday 10 July  21:44:47 ACST 2018] - Checking domain.com
-[Tuesday 10 July  21:44:50 ACST 2018] - No Update Required: domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:51 ACST 2018] - No Update Required: taco.domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:53 ACST 2018] - No Update Required: www.domain.com is 1.1.1.1
-[Tuesday 10 July  21:44:53 ACST 2018] - All Done!
-~~~
-
-
-## Party! 🎉🎈🕺🧙‍
-
+---
 
 ### Now Supercharge your life with Cron 😎
 ~~~
-# Check and update domain.com each hour
+# Check and update domain.com and domain2.com each hour
 0 * * * * /home/sushi/UpdateAll.sh
 ~~~
 
@@ -109,10 +124,6 @@ Packaged by Homebrew
 ```
 
 Give it another whirl 👌
-
-
-### Updating Multiple Zones?
-Clone the repo a few more times for each domain. Each Zone will require it's own API details, best to keep it separate and make life easier.
 
 ---
 
